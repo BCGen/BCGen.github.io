@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+
+  <body>
+    <div id="app" v-cloak class="container p-4">
+      <div class="row">
+        <div class="col-12 mb-3">
+          <h1 class="text-center">{{ title }}</h1>
+        </div>
+
+        <div class="col-12">
+          <div id="reader"></div>
+        </div>
+
+        <template v-if="isCameraReady">
+          <div
+            v-if="message"
+            class="
+              col-12
+              my-4
+              d-flex
+              flex-column
+              justify-content-center
+              align-items-center
+            "
+          >
+            <h2>商家 ID</h2>
+
+            <span class="mb-3">{{ message }}</span>
+
+            <button class="btn btn-primary" @click.prevent="handleClick">
+              傳送簡訊
+            </button>
+          </div>
+
+          <div class="col-12 my-4" v-else>
+            <h2 class="text-center">請掃描 Qr Code</h2>
+          </div>
+
+          <div class="col-12 d-flex justify-content-center">
+            <div class="form-check">
+              <input
+                v-model="autoOpenSMS"
+                class="form-check-input"
+                type="checkbox"
+                id="flexCheckDefault"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                自動開啟簡訊
+              </label>
+            </div>
+          </div>
+        </template>
+
+        <div v-else class="col-12 my-4">
+          <h2 class="text-center">取得資訊中，請稍候...</h2>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./js/require.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/html5-qrcode.min.js"></script>
+    <script src="./js/js.cookie.min"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
