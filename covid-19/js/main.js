@@ -26,9 +26,9 @@ const app = {
     onQrCodeUpdate(message) {
       this.message = message
 
-      if (this.autoOpenSMS) {
-        this.handleClick()
-      }
+      // if (this.autoOpenSMS) {
+      //   this.handleClick()
+      // }
     },
     async init() {
       try {
